@@ -2,77 +2,165 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include <string>
+#include <map>
 #include <iomanip>
 #include "BinaryTree/TreeMap.h"
 
-// Function to split a string by a delimiter
-std::vector<std::string> split(const std::string& line, char delimiter) {
-    std::vector<std::string> result;
-    std::istringstream stream(line);
-    std::string token;
-    while (std::getline(stream, token, delimiter)) {
-        result.push_back(token);
+// Struct to represent a row of retail data
+struct RetailData {
+    std::string date;
+    std::string product;
+    std::string category;
+    int unitsSold;
+    double pricePerUnit;
+    double totalRevenue;
+};
+
+// Function to read data from the CSV file
+std::vector<RetailData> readCSV(const std::string& filename) {
+    std::vector<RetailData> data;
+    std::ifstream file("/Users/alex/CLionProjects/ADS_2024_CA2_Alexandru_Radu/RetailSalesData.csv");
+
+    if (!file.is_open()) {
+        throw std::runtime_error("Error: Unable to open file. Check the filename and location.");
     }
-    return result;
+
+    std::string line;
+    std::getline(file, line); // Skip the header row
+    while (std::getline(file, line)) {
+        std::istringstream ss(line);
+        RetailData row;
+        std::getline(ss, row.date, ',');
+        std::getline(ss, row.product, ',');
+        std::getline(ss, row.category, ',');
+        ss >> row.unitsSold;
+        ss.ignore(); // Ignore the comma
+        ss >> row.pricePerUnit;
+        ss.ignore(); // Ignore the comma
+        ss >> row.totalRevenue;
+        data.push_back(row);
+    }
+
+    return data;
 }
 
-// Function to print the contents of the TreeMap
-void printTreeMap(const TreeMap<std::string, std::vector<std::string>>& data) {
-    for (const auto& key : data.keySet()) {
-        std::cout << "Category: " << key << std::endl;
-        for (const auto& record : data.get(key)) {
-            std::cout << "  " << record << std::endl;
+// Function to display data in a table format
+void displayData(const std::vector<RetailData>& data) {
+    if (data.empty()) {
+        std::cout << "No data to display.\n";
+        return;
+    }
+
+    std::cout << std::left << std::setw(12) << "Date"
+              << std::setw(15) << "Product"
+              << std::setw(12) << "Category"
+              << std::setw(12) << "Units Sold"
+              << std::setw(15) << "Price/Unit"
+              << std::setw(15) << "Total Revenue" << "\n";
+    std::cout << std::string(80, '-') << "\n";
+
+    for (const auto& row : data) {
+        std::cout << std::left << std::setw(12) << row.date
+                  << std::setw(15) << row.product
+                  << std::setw(12) << row.category
+                  << std::setw(12) << row.unitsSold
+                  << std::setw(15) << row.pricePerUnit
+                  << std::setw(15) << row.totalRevenue << "\n";
+    }
+}
+
+// Function to create an index for a specified field
+void createIndex(const std::vector<RetailData>& data, const std::string& field) {
+    // Validate the field
+    if (field != "Product" && field != "Category" && field != "Date") {
+        std::cerr << "Error: Invalid field specified. Please choose Product, Category, or Date.\n";
+        return;
+    }
+
+    TreeMap<std::string, int> index;
+
+    for (const auto& row : data) {
+        std::string key;
+
+        // Determine the key based on the chosen field
+        if (field == "Product") key = row.product;
+        else if (field == "Category") key = row.category;
+        else if (field == "Date") key = row.date;
+
+        if (key.empty()) continue; // Skip empty keys
+
+        // Add to the index or increment the count
+        if (!index.containsKey(key)) {
+            index.put(key, 1); // First occurrence
+        } else {
+            index.put(key, index.get(key) + 1); // Increment count
         }
-        std::cout << std::endl;
+    }
+
+    // Display the index
+    std::cout << "Index for field: " << field << "\n";
+    for (const auto& key : index.keySet()) {
+        std::cout << key << ": " << index.get(key) << " rows\n";
+    }
+}
+
+// Function to filter data based on a user-specified value
+void filterData(const std::vector<RetailData>& data, const std::string& field, const std::string& value) {
+    std::vector<RetailData> filteredData;
+
+    for (const auto& row : data) {
+        if ((field == "Product" && row.product == value) ||
+            (field == "Category" && row.category == value) ||
+            (field == "Date" && row.date == value)) {
+            filteredData.push_back(row);
+        }
+    }
+
+    if (filteredData.empty()) {
+        std::cout << "No matching rows found for " << field << " = " << value << ".\n";
+    } else {
+        displayData(filteredData);
     }
 }
 
 int main() {
-    std::string filename = "RetailSalesData.csv";
+    try {
+        std::string filename = "RetailSalesData.csv";
+        std::vector<RetailData> data = readCSV(filename);
 
-    std::ifstream file(filename);
-    if (!file) {
-        std::cerr << "Error: Could not open the file " << filename << std::endl;
-        return 1;
+        int choice;
+        do {
+            std::cout << "\nMenu:\n";
+            std::cout << "1. View all data\n";
+            std::cout << "2. Create an index\n";
+            std::cout << "3. Filter data by a field\n";
+            std::cout << "4. Exit\n";
+            std::cout << "Enter your choice: ";
+            std::cin >> choice;
+
+            if (choice == 1) {
+                displayData(data);
+            } else if (choice == 2) {
+                std::string field;
+                std::cout << "Enter field to index (Product/Category/Date): ";
+                std::cin >> field;
+                createIndex(data, field);
+            } else if (choice == 3) {
+                std::string field, value;
+                std::cout << "Enter field to filter by (Product/Category/Date): ";
+                std::cin >> field;
+                std::cout << "Enter value for " << field << ": ";
+                std::cin >> value;
+                filterData(data, field, value);
+            } else if (choice != 4) {
+                std::cout << "Invalid choice. Try again.\n";
+            }
+        } while (choice != 4);
+
+        std::cout << "Exiting program.\n";
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << "\n";
     }
-
-    // Create a TreeMap to organize data by category
-    TreeMap<std::string, std::vector<std::string>> salesData;
-
-    // Read the CSV file
-    std::string line;
-    bool isHeader = true;
-    while (std::getline(file, line)) {
-        if (isHeader) {
-            isHeader = false; // Skip the header row
-            continue;
-        }
-
-        // Split the line into fields
-        auto fields = split(line, ',');
-
-        // Check if the row has valid data
-        if (fields.size() < 6) continue;
-
-        // Extract the relevant fields
-        std::string category = fields[2];
-        std::string record = "Date: " + fields[0] + ", Product: " + fields[1] +
-                             ", Units Sold: " + fields[3] + ", Price: $" + fields[4] +
-                             ", Revenue: $" + fields[5];
-
-        // Add the record to the TreeMap
-        if (!salesData.containsKey(category)) {
-            salesData.put(category, std::vector<std::string>());
-        }
-        salesData.get(category).push_back(record);
-    }
-
-    file.close();
-
-    // Display the data
-    std::cout << "Retail Sales Data by Category:\n";
-    printTreeMap(salesData);
 
     return 0;
 }

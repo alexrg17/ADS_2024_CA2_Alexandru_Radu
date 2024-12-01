@@ -977,6 +977,8 @@ CMakeFiles/ADS_2024_CA2_Alexandru_Radu.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/sstream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/map \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__tree \
   /Users/alex/CLionProjects/ADS_2024_CA2_Alexandru_Radu/BinaryTree/TreeMap.h \
   /Users/alex/CLionProjects/ADS_2024_CA2_Alexandru_Radu/BinaryTree/BinaryTree.h \
   /Users/alex/CLionProjects/ADS_2024_CA2_Alexandru_Radu/BinaryTree/BSTNode.h
