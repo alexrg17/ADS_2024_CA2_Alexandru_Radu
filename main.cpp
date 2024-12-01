@@ -1,64 +1,78 @@
 #include <iostream>
-#include <fstream>      // For file reading
+#include <fstream>
+#include <sstream>
+#include <vector>
 #include <string>
-#include <cctype>       // For character handling
-#include <sstream>      // For string streaming
-#include "BinaryTree/BinaryTree.h"
+#include <iomanip>
 #include "BinaryTree/TreeMap.h"
 
-#ifndef UNIT_TEST
+// Function to split a string by a delimiter
+std::vector<std::string> split(const std::string& line, char delimiter) {
+    std::vector<std::string> result;
+    std::istringstream stream(line);
+    std::string token;
+    while (std::getline(stream, token, delimiter)) {
+        result.push_back(token);
+    }
+    return result;
+}
+
+// Function to print the contents of the TreeMap
+void printTreeMap(const TreeMap<std::string, std::vector<std::string>>& data) {
+    for (const auto& key : data.keySet()) {
+        std::cout << "Category: " << key << std::endl;
+        for (const auto& record : data.get(key)) {
+            std::cout << "  " << record << std::endl;
+        }
+        std::cout << std::endl;
+    }
+}
+
 int main() {
-    std::string filename;
-    std::cout << "Enter the filename to process: ";
-    std::cin >> filename;
+    std::string filename = "RetailSalesData.csv";
 
     std::ifstream file(filename);
     if (!file) {
-        std::cerr << "Could not open the file: " << filename << std::endl;
+        std::cerr << "Error: Could not open the file " << filename << std::endl;
         return 1;
     }
 
-    TreeMap<char, std::vector<std::string>> wordMap;
-    std::string word;
+    // Create a TreeMap to organize data by category
+    TreeMap<std::string, std::vector<std::string>> salesData;
 
-    while (file >> word) {
-        // Clean up the word and convert to lowercase if needed
-        std::string cleanWord;
-        for (char ch : word) {
-            if (std::isalpha(ch)) {
-                cleanWord += std::tolower(ch);
-            }
+    // Read the CSV file
+    std::string line;
+    bool isHeader = true;
+    while (std::getline(file, line)) {
+        if (isHeader) {
+            isHeader = false; // Skip the header row
+            continue;
         }
-        if (!cleanWord.empty()) {
-            char firstLetter = cleanWord[0];
-            wordMap[firstLetter].push_back(cleanWord);
+
+        // Split the line into fields
+        auto fields = split(line, ',');
+
+        // Check if the row has valid data
+        if (fields.size() < 6) continue;
+
+        // Extract the relevant fields
+        std::string category = fields[2];
+        std::string record = "Date: " + fields[0] + ", Product: " + fields[1] +
+                             ", Units Sold: " + fields[3] + ", Price: $" + fields[4] +
+                             ", Revenue: $" + fields[5];
+
+        // Add the record to the TreeMap
+        if (!salesData.containsKey(category)) {
+            salesData.put(category, std::vector<std::string>());
         }
+        salesData.get(category).push_back(record);
     }
 
     file.close();
 
-    // Display the results
-    std::vector<char> keys = wordMap.keySet();
-    std::cout << "Letters found in the file:" << std::endl;
-    for (char key : keys) {
-        std::cout << key << std::endl;
-    }
-
-    char inputKey;
-    std::cout << "Enter a letter to see all associated words or '#' to exit: ";
-    while (std::cin >> inputKey && inputKey != '#') {
-        if (wordMap.containsKey(inputKey)) {
-            std::vector<std::string> words = wordMap.get(inputKey);
-            std::cout << "Words starting with '" << inputKey << "':" << std::endl;
-            for (const std::string& w : words) {
-                std::cout << w << std::endl;
-            }
-        } else {
-            std::cout << "No words start with '" << inputKey << "'." << std::endl;
-        }
-        std::cout << "Enter another letter or '#' to exit: ";
-    }
+    // Display the data
+    std::cout << "Retail Sales Data by Category:\n";
+    printTreeMap(salesData);
 
     return 0;
 }
-#endif

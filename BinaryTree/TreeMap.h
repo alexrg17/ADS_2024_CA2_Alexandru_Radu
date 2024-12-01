@@ -6,10 +6,6 @@
 #include <utility>
 #include <stdexcept>
 
-#include <vector>
-#include <utility>
-#include <stdexcept>
-
 template <typename K, typename V>
 class TreeMap {
 private:

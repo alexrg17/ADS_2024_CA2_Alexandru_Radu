@@ -1,0 +1,149 @@
+Date,Product,Category,Unit Sold,Price per Unit,Total Revenue
+2023-01-01,Shirt,Apparel,25,20.00,500.00
+2023-01-02,Pants,Apparel,30,25.00,750.00
+2023-01-03,Jacket,Apparel,15,50.00,750.00
+2023-01-04,Socks,Apparel,50,5.00,250.00
+2023-01-05,Shoes,Footwear,20,100.00,2000.00
+2023-01-06,Backpack,Accessories,10,60.00,600.00
+2023-01-07,Watch,Accessories,5,150.00,750.00
+2023-01-08,Belt,Accessories,20,15.00,300.00
+2023-01-09,Sunglasses,Accessories,10,80.00,800.00
+2023-01-10,Hat,Accessories,25,25.00,625.00
+2023-01-11,Scarf,Apparel,30,20.00,600.00
+2023-01-12,Gloves,Apparel,15,30.00,450.00
+2023-01-13,Umbrella,Accessories,10,40.00,400.00
+2023-01-14,Handbag,Accessories,5,200.00,1000.00
+2023-01-15,Dress,Apparel,10,80.00,800.00
+2023-01-16,Tie,Apparel,15,25.00,375.00
+2023-01-17,Coat,Apparel,10,120.00,1200.00
+2023-01-18,Skirt,Apparel,5,50.00,250.00
+2023-01-19,Blouse,Apparel,10,30.00,300.00
+2023-01-20,T-shirt,Apparel,20,15.00,300.00
+2023-01-21,Sneakers,Footwear,30,80.00,2400.00
+2023-01-22,Flip-Flops,Footwear,50,10.00,500.00
+2023-01-23,Wallet,Accessories,15,45.00,675.00
+2023-01-24,Necklace,Accessories,10,150.00,1500.00
+2023-01-25,Earrings,Accessories,25,60.00,1500.00
+2023-01-26,Bracelet,Accessories,20,80.00,1600.00
+2023-01-27,Cap,Accessories,30,15.00,450.00
+2023-01-28,Clutch,Accessories,10,200.00,2000.00
+2023-01-29,Jeans,Apparel,40,50.00,2000.00
+2023-01-30,Jumpsuit,Apparel,15,70.00,1050.00
+2023-01-31,Raincoat,Apparel,5,120.00,600.00
+2023-02-01,Trousers,Apparel,20,40.00,800.00
+2023-02-02,Sandals,Footwear,25,60.00,1500.00
+2023-02-03,Boots,Footwear,10,200.00,2000.00
+2023-02-04,Overalls,Apparel,5,80.00,400.00
+2023-02-05,Polo,Apparel,25,30.00,750.00
+2023-02-06,Leggings,Apparel,30,25.00,750.00
+2023-02-07,Anklet,Accessories,50,20.00,1000.00
+2023-02-08,Tunic,Apparel,20,40.00,800.00
+2023-02-09,Waistcoat,Apparel,15,60.00,900.00
+2023-02-10,Jumper,Apparel,10,50.00,500.00
+2023-02-11,Tank Top,Apparel,30,15.00,450.00
+2023-02-12,Cardigan,Apparel,25,40.00,1000.00
+2023-02-13,Tracksuit,Apparel,10,70.00,700.00
+2023-02-14,Scarf,Accessories,20,25.00,500.00
+2023-02-15,Hat,Accessories,15,30.00,450.00
+2023-02-16,Boots,Footwear,10,150.00,1500.00
+2023-02-17,Slip-Ons,Footwear,25,45.00,1125.00
+2023-02-18,Brogues,Footwear,20,75.00,1500.00
+2023-02-19,Duffle Bag,Accessories,5,300.00,1500.00
+2023-02-20,Hoody,Apparel,15,50.00,750.00
+2023-02-21,Blazer,Apparel,5,200.00,1000.00
+2023-02-22,Swimwear,Apparel,30,25.00,750.00
+2023-02-23,Puffer Jacket,Apparel,10,150.00,1500.00
+2023-02-24,Crop Top,Apparel,20,20.00,400.00
+2023-02-25,Sweater,Apparel,25,50.00,1250.00
+2023-02-26,Windbreaker,Apparel,15,100.00,1500.00
+2023-02-27,Fleece,Apparel,5,80.00,400.00
+2023-02-28,Dungarees,Apparel,10,60.00,600.00
+2023-03-01,Mittens,Apparel,10,25.00,250.00
+2023-03-02,Slippers,Footwear,20,15.00,300.00
+2023-03-03,Sarong,Apparel,5,40.00,200.00
+2023-03-04,Cufflinks,Accessories,15,50.00,750.00
+2023-03-05,Ballet Flats,Footwear,25,50.00,1250.00
+2023-03-06,Beret,Accessories,20,30.00,600.00
+2023-03-07,Parkas,Apparel,10,120.00,1200.00
+2023-03-08,Cargo Pants,Apparel,15,35.00,525.00
+2023-03-09,Suspenders,Accessories,5,30.00,150.00
+2023-03-10,Loafers,Footwear,20,90.00,1800.00
+2023-03-11,Bucket Hat,Accessories,15,40.00,600.00
+2023-03-12,Ski Jacket,Apparel,5,150.00,750.00
+2023-03-13,Sandals,Footwear,25,30.00,750.00
+2023-03-14,Peacoat,Apparel,10,120.00,1200.00
+2023-03-15,Kimono,Apparel,20,80.00,1600.00
+2023-03-16,Tracksuit Bottoms,Apparel,15,30.00,450.00
+2023-03-17,Sweatpants,Apparel,20,25.00,500.00
+2023-03-18,Hooded Sweatshirt,Apparel,10,60.00,600.00
+2023-03-19,Denim Jacket,Apparel,5,80.00,400.00
+2023-03-20,Chinos,Apparel,20,40.00,800.00
+2023-03-21,Overcoat,Apparel,15,150.00,2250.00
+2023-03-22,Gloves,Accessories,10,25.00,250.00
+2023-03-23,Suit Jacket,Apparel,5,200.00,1000.00
+2023-03-24,Dress Shoes,Footwear,15,120.00,1800.00
+2023-03-25,Sports Shoes,Footwear,25,60.00,1500.00
+2023-03-26,Canvas Shoes,Footwear,20,50.00,1000.00
+2023-03-27,Hiking Boots,Footwear,10,150.00,1500.00
+2023-03-28,Espadrilles,Footwear,15,45.00,675.00
+2023-03-29,Flip Flops,Footwear,30,10.00,300.00
+2023-03-30,Clogs,Footwear,10,35.00,350.00
+2023-03-31,Turtleneck Sweater,Apparel,15,70.00,1050.00
+2023-04-01,Formal Shirt,Apparel,20,50.00,1000.00
+2023-04-02,Tank Top,Apparel,25,20.00,500.00
+2023-04-03,Fedora,Accessories,5,80.00,400.00
+2023-04-04,Panama Hat,Accessories,10,100.00,1000.00
+2023-04-05,Bowler Hat,Accessories,15,75.00,1125.00
+2023-04-06,Trilby Hat,Accessories,20,40.00,800.00
+2023-04-07,Winter Hat,Accessories,25,25.00,625.00
+2023-04-08,Poncho,Apparel,10,60.00,600.00
+2023-04-09,Rain Boots,Footwear,15,75.00,1125.00
+2023-04-10,Galoshes,Footwear,20,40.00,800.00
+2023-04-11,Running Shoes,Footwear,25,100.00,2500.00
+2023-04-12,Gym Bag,Accessories,10,50.00,500.00
+2023-04-13,Weekend Bag,Accessories,15,80.00,1200.00
+2023-04-14,Beach Bag,Accessories,20,30.00,600.00
+2023-04-15,Laptop Bag,Accessories,5,150.00,750.00
+2023-04-16,Tablet Case,Accessories,10,40.00,400.00
+2023-04-17,Phone Case,Accessories,15,20.00,300.00
+2023-04-18,Wallet,Accessories,20,60.00,1200.00
+2023-04-19,Keychain,Accessories,25,15.00,375.00
+2023-04-20,Backpack,Accessories,10,100.00,1000.00
+2023-04-21,Overnight Bag,Accessories,15,120.00,1800.00
+2023-04-22,Crossbody Bag,Accessories,20,80.00,1600.00
+2023-04-23,Duffle Bag,Accessories,25,150.00,3750.00
+2023-04-24,Messenger Bag,Accessories,5,200.00,1000.00
+2023-04-25,Leather Jacket,Apparel,15,300.00,4500.00
+2023-04-26,Fleece Jacket,Apparel,10,120.00,1200.00
+2023-04-27,Wool Coat,Apparel,5,250.00,1250.00
+2023-04-28,Quilted Vest,Apparel,20,80.00,1600.00
+2023-04-29,Puffer Jacket,Apparel,25,150.00,3750.00
+2023-04-30,Suit Pants,Apparel,15,100.00,1500.00
+2023-05-01,Blazer,Apparel,10,250.00,2500.00
+2023-05-02,Formal Shoes,Footwear,20,200.00,4000.00
+2023-05-03,Boat Shoes,Footwear,25,90.00,2250.00
+2023-05-04,Derby Shoes,Footwear,15,120.00,1800.00
+2023-05-05,Oxfords,Footwear,10,150.00,1500.00
+2023-05-06,Moccasins,Footwear,20,80.00,1600.00
+2023-05-07,Slippers,Footwear,25,20.00,500.00
+2023-05-08,High Heels,Footwear,15,100.00,1500.00
+2023-05-09,Stilettos,Footwear,10,120.00,1200.00
+2023-05-10,Wedge Heels,Footwear,20,90.00,1800.00
+2023-05-11,Kitten Heels,Footwear,25,50.00,1250.00
+2023-05-12,Platform Shoes,Footwear,15,80.00,1200.00
+2023-05-13,Espadrilles,Footwear,10,60.00,600.00
+2023-05-14,Slip-Ons,Footwear,20,40.00,800.00
+2023-05-15,Pumps,Footwear,25,100.00,2500.00
+2023-05-16,Peep-Toe Heels,Footwear,15,120.00,1800.00
+2023-05-17,Ankle Boots,Footwear,10,150.00,1500.00
+2023-05-18,Knee-High Boots,Footwear,20,200.00,4000.00
+2023-05-19,Raincoat,Apparel,15,100.00,1500.00
+2023-05-20,Trench Coat,Apparel,10,250.00,2500.00
+2023-05-21,Cardigan,Apparel,20,80.00,1600.00
+2023-05-22,Waistcoat,Apparel,25,60.00,1500.00
+2023-05-23,Polo Shirt,Apparel,15,40.00,600.00
+2023-05-24,V-Neck Sweater,Apparel,10,90.00,900.00
+2023-05-25,Hoodie,Apparel,20,50.00,1000.00
+2023-05-26,Cargo Pants,Apparel,25,40.00,1000.00
+2023-05-27,Ski Jacket,Apparel,15,200.00,3000.00
+2023-05-28,Beanie,Accessories,10,20.00,200.00
